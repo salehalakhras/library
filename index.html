@@ -16,6 +16,11 @@
           @apply rounded-md drop-shadow-md border h-fit w-fit px-4 py-2;
         }
       }
+      @layer components{
+        .field{
+          @apply border border-gray-400 rounded-md text-black lg:px-2 lg:py-1 drop-shadow-lg
+        }
+      }
       body {
         background: rgb(0, 2, 29);
         background: linear-gradient(
@@ -24,6 +29,9 @@
           rgba(0, 5, 77, 1) 73%
         );
       }
+      input, select, textarea, button {
+outline: none !important;
+}
     </style>
     <script src="https://cdn.tailwindcss.com">
             tailwind.config = {
@@ -40,33 +48,42 @@
   <body
     class="grid grid-cols-1 grid-rows-[1fr_0.75fr_1fr_5fr] justify-center content-center h-screen w-screen p-4 py-10"
   >
-    <div class="text-4xl font-medium text-white lg:mx-32">Welcome to My Library Project</div>
-    <p class="text-white lg:mx-32">
+    <div class="text-4xl font-medium text-gray-200 lg:mx-32">
+      Welcome to My Library Project
+    </div>
+    <p class="text-gray-300 lg:mx-32">
       An exercise from The Odin Project course to build an online library
     </p>
-    <form action="" class="text-white flex items-center lg:mx-32">
-      <legend>Add a Book</legend>
-      <div><label for="title">Title</label>
-      <input type="text" name="bookTitle" id="title">
-    </div>
-    <div>
-      <label for="author">Author</label>
-      <input type="text" name="author" id="author">
-    </div>
-    <div></div>
+    <form action="" class="text-gray-200 flex items-center lg:mx-32 justify-around">
+      <div class="flex flex-col">
+        <label class="font-medium text-xl" for="title">Title</label>
+        <input  class="field" type="text" name="bookTitle" id="title" placeholder="Enter the book title"/>
+      </div>
+      <div class="flex flex-col">
+        <label class="font-medium text-xl" for="author">Author</label>
+        <input class="field" type="text" name="author" id="author" placeholder="Enter the book author"/>
+      </div>
+      <div class="flex flex-col">
+        <label class="font-medium text-xl" for="pages">Pages</label>
+        <input class="field" type="text" name="pages" id="pages" placeholder="Enter the book price"/>
+      </div>
+      <div>
+        <input type="checkbox" name="readCheckBox" id="checkbox" />
+        <label class="font-medium text-xl" for="checkbox">Read</label>
+      </div>
+      <button type="button"  id="addBook" class="btn">Add Book</button>
     </form>
 
     <div
       id="area"
-      class="grid grid-cols-1 mt-auto gap-y-4 p-8 bg-gray-400 rounded-lg drop-shadow-lg border border-gray-300 overflow-scroll lg:mx-32"
+      class="grid grid-cols-1 mb-auto gap-y-4 p-8 bg-gray-300 rounded-lg drop-shadow-lg border border-gray-400 overflow-scroll lg:mx-32"
     >
       <div
-        class="card grid grid-cols-6 gap-x-20 justify-center items-center text-2xl border-b border-gray-500"
+        class="card grid grid-cols-5 gap-x-20 justify-center items-center text-2xl border-b border-gray-400 font-medium"
       >
         <p>Title</p>
         <p>Author</p>
         <p>Pages</p>
-        <p>Price</p>
         <p>Status</p>
       </div>
     </div>
