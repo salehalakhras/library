@@ -1,5 +1,6 @@
 let library = [];
 let removeBtns = [];
+let readBtns = [];
 let bookArr = [];
 const cardArea = document.querySelector("#area");
 const titleRow = document.getElementById("titleRow");
@@ -44,6 +45,14 @@ function displayLib() {
     cardArea.appendChild(card);
     bookArr[i] = card;
     removeBtns[i] = document.getElementById(`del-btn-${i}`);
+    readBtns[i] = document.getElementById(`btn-${i}`);
+    readBtns[i].addEventListener('click',()=>{
+    library[event.target.id[event.target.id.length - 1]].toggleRead();
+      if(library[event.target.id[event.target.id.length - 1]].read)
+        event.target.innerText = 'Read';
+      else
+        event.target.innerText = 'Not Read';
+    })
     removeBtns[i].addEventListener('click',()=>{
       removeBook(event.target.id[event.target.id.length - 1]);
     });
