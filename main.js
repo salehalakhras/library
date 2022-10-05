@@ -5,6 +5,12 @@ let bookArr = [];
 const cardArea = document.querySelector("#area");
 const titleRow = document.getElementById("titleRow");
 
+//dummy content
+addBook('Title-1','Author-1','123',true,);
+addBook('Title-2','Author-2','321',false,);
+addBook('Title-3','Author-3','213',true,);
+addBook('Title-4','Author-4','312',false,);
+
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
@@ -12,7 +18,7 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
-function addBook(title, author, pages, read, price) {
+function addBook(title, author, pages, read) {
   let newBook = new Book(title, author, pages, read);
   library.push(newBook);
 }
