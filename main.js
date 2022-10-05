@@ -1,4 +1,5 @@
-let library = [];
+let library = [];    let removeBtns = [];
+let readBtns = [];
 let i = 0;
 const cardArea = document.querySelector("#area");
 
@@ -9,11 +10,15 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
+
 function addBook(title, author, pages, read, price) {
   let newBook = new Book(title, author, pages, read);
   library.push(newBook);
 }
 
+Book.prototype.toggleRead = function () {
+  this.read = !this.read;
+};
 const addBtn = document.getElementById("addBook");
 
 addBtn.addEventListener("click", () => {
@@ -22,10 +27,9 @@ addBtn.addEventListener("click", () => {
   const newPages = document.getElementById("pages").value;
   const isRead = document.getElementById("checkbox").checked;
   addBook(newTitle, newAuthor, newPages, isRead);
-  console.log(library);
+  const readBtns = [library.length];
   for (i; i < library.length; i++) {
     const card = document.createElement("div");
-    card.className = "card";
     card.innerHTML = `<p>${library[i].title}</p>
   <p>${library[i].author}</p>
   <p>${library[i].pages}</p>
@@ -34,7 +38,13 @@ addBtn.addEventListener("click", () => {
     }</button>
   <button id="del-btn-${i}"class="btn bg-red-600 border-red-700">Delete</button>`;
     card.classList =
-      "card grid grid-cols-5 gap-x-20 justify-center items-center border-b border-gray-400 p-2";
+      `card card-${i} grid grid-cols-5 gap-x-20 justify-center items-center border-b border-gray-400 p-2`;
     cardArea.appendChild(card);
+    removeBtns[i] = document.getElementById(`del-btn-${i}`);
+    removeBtns[i].addEventListener('click',() => {
+      let removedCard = document.getElementById(`card-${i}`);
+      removedCard.remove();
+    });
   }
 });
+

@@ -16,9 +16,9 @@
           @apply rounded-md drop-shadow-md border h-fit w-fit px-4 py-2;
         }
       }
-      @layer components{
-        .field{
-          @apply border border-gray-400 rounded-md text-black lg:px-2 lg:py-1 drop-shadow-lg
+      @layer components {
+        .field {
+          @apply border border-gray-400 rounded-md text-black lg:px-2 lg:py-1 drop-shadow-lg;
         }
       }
       body {
@@ -29,9 +29,12 @@
           rgba(0, 5, 77, 1) 73%
         );
       }
-      input, select, textarea, button {
-outline: none !important;
-}
+      input,
+      select,
+      textarea,
+      button {
+        outline: none !important;
+      }
     </style>
     <script src="https://cdn.tailwindcss.com">
             tailwind.config = {
@@ -54,24 +57,45 @@ outline: none !important;
     <p class="text-gray-300 lg:mx-32">
       An exercise from The Odin Project course to build an online library
     </p>
-    <form action="" class="text-gray-200 flex items-center lg:mx-32 justify-around">
+    <form
+      action=""
+      class="text-gray-200 flex items-center lg:mx-32 justify-around"
+    >
       <div class="flex flex-col">
         <label class="font-medium text-xl" for="title">Title</label>
-        <input  class="field" type="text" name="bookTitle" id="title" placeholder="Enter the book title"/>
+        <input
+          class="field"
+          type="text"
+          name="bookTitle"
+          id="title"
+          placeholder="Enter the book title"
+        />
       </div>
       <div class="flex flex-col">
         <label class="font-medium text-xl" for="author">Author</label>
-        <input class="field" type="text" name="author" id="author" placeholder="Enter the book author"/>
+        <input
+          class="field"
+          type="text"
+          name="author"
+          id="author"
+          placeholder="Enter the book author"
+        />
       </div>
       <div class="flex flex-col">
         <label class="font-medium text-xl" for="pages">Pages</label>
-        <input class="field" type="text" name="pages" id="pages" placeholder="Enter the book price"/>
+        <input
+          class="field"
+          type="text"
+          name="pages"
+          id="pages"
+          placeholder="Enter the book pages"
+        />
       </div>
       <div>
         <input type="checkbox" name="readCheckBox" id="checkbox" />
         <label class="font-medium text-xl" for="checkbox">Read</label>
       </div>
-      <button type="button"  id="addBook" class="btn">Add Book</button>
+      <button type="button" id="addBook" class="btn">Add Book</button>
     </form>
 
     <div
